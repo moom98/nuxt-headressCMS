@@ -25,11 +25,15 @@
     "@babel/eslint-parser": "^7.19.1",
     "@nuxtjs/eslint-config": "^11.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
+    "@nuxtjs/style-resources": "^1.2.1",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-vue": "^9.5.1",
-    "prettier": "^2.7.1"
+    "nuxt-svg-loader": "^1.2.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.63.6",
+    "sass-loader": "10"
   },
   "volta": {
     "node": "18.16.0",
