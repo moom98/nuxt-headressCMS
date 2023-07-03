@@ -4,7 +4,7 @@
       <img src="" alt="" class="kvSec__img" />
     </div>
 
-    <section class="top__pickup pickupSec">
+    <section id="pickup" class="top__pickup pickupSec">
       <h2 class="pickupSec__title secTitle">Pickup</h2>
       <carousel
         class="pickupSec__list"
@@ -22,7 +22,7 @@
       </carousel>
     </section>
 
-    <section class="top__feature featureSec">
+    <section id="feature" class="top__feature featureSec">
       <h2 class="featureSec__title secTitle">Feature</h2>
       <ul class="featureSec__list">
         <li v-for="n in 9" :key="n" class="featureSec__item">
