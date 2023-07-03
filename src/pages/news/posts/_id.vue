@@ -3,6 +3,7 @@
     <h1>お知らせ詳細</h1>
     <div class="posts_content">
       {{ posts }}
+      {{ newsTagLabel }}
     </div>
     <!-- <p>{{ routeParams }}</p> -->
   </div>
@@ -21,6 +22,14 @@ export default {
       // 記事を取得
       const posts = await context.$axios.$get(newsUrl)
 
+      // news-tagのIDを取得
+      const newsTagId = posts['news-tag'][0]
+
+      // news-tagのラベルを取得
+      const newsTag = await context.$axios.$get(
+        baseUrl + 'news-tag/' + newsTagId
+      )
+
       // 記事が存在しない場合のエラーハンドリング
       if (!posts) {
         const error = new Error('記事が見つかりませんでした')
@@ -30,6 +39,7 @@ export default {
 
       return {
         posts,
+        newsTagLabel: newsTag.name, // ラベルを追加
         routeParams,
       }
     } catch (error) {
