@@ -11,18 +11,38 @@
 <script>
 export default {
   async asyncData(context) {
-    // WP REST APIのベースURL
-    const baseUrl = context.$config.wpBaseUrl
-    const routeParams = context.params.id
+    try {
+      // WP REST APIのベースURL
+      const baseUrl = context.$config.wpBaseUrl
+      const routeParams = context.params.id
 
-    const newsUrl = baseUrl + 'news/' + routeParams
+      const newsUrl = baseUrl + 'news/' + routeParams
 
-    // 記事を取得
-    const posts = await context.$axios.$get(newsUrl)
+      // 記事を取得
+      const posts = await context.$axios.$get(newsUrl)
 
-    return {
-      posts,
-      routeParams,
+      // 記事が存在しない場合のエラーハンドリング
+      if (!posts) {
+        const error = new Error('記事が見つかりませんでした')
+        error.statusCode = 404
+        throw error
+      }
+
+      return {
+        posts,
+        routeParams,
+      }
+    } catch (error) {
+      // エラーハンドリング
+      console.error(error)
+      // 404エラーの場合はエラーページにリダイレクトする
+      if (error.statusCode === 404) {
+        context.error({
+          statusCode: 404,
+          message: '記事が見つかりませんでした',
+        })
+      }
+      throw error
     }
   },
   data() {
