@@ -20,7 +20,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: $contentWidth;
+  width: 100%;
+  padding: 0 20px 0 40px;
 
   &__title {
     font-size: 35px;
