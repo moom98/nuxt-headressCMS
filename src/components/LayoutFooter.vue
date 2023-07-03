@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <h1 class="footer__title">contact</h1>
+    <h1 class="footer__title secTitle">contact</h1>
     <div class="footer__inner">
       <div class="footer__textBox">
         <p class="footer__text">テキストテキストテキスト</p>
@@ -37,15 +37,15 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  width: $contentWidth;
+  width: 100%;
   padding: 66px 0 12px 0;
   background-color: $mainColor;
   color: white;
 
-  &__title {
-    text-align: center;
-    text-transform: uppercase;
-  }
+  // &__title {
+  //   text-align: center;
+  //   text-transform: uppercase;
+  // }
 
   &__inner {
     display: flex;
