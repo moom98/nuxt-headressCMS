@@ -1,7 +1,7 @@
 <template>
   <div class="top">
     <div class="top__kv kvSec">
-      <img src="" alt="" class="kvSec__img" />
+      <img src="../assets/img/kv.jpg" alt="" class="kvSec__img" />
     </div>
 
     <section id="pickup" class="top__pickup pickupSec">
@@ -76,6 +76,7 @@ export default {
   &__img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
     background-color: blue;
   }
 }
