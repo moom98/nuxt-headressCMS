@@ -3,113 +3,19 @@
     <section class="news__feature featureSec">
       <h2 class="featureSec__title secTitle">お知らせ一覧</h2>
       <ul class="featureSec__list">
-        <li class="featureSec__item">
-          <img src="" alt="" class="featureSec__itemImg" />
-          <div class="featureSec__textBox">
-            <p class="featureSec__itemCat">category</p>
-            <h3 class="featureSec__itemTitle">
-              テキストテキストテキストテキストテキストテキストテキストテキスト
-            </h3>
-            <time class="featureSec__itemDate" datetime="2023-07-01"
-              >2023.07.01</time
-            >
-          </div>
-        </li>
-        <li class="featureSec__item">
-          <img src="" alt="" class="featureSec__itemImg" />
-          <div class="featureSec__textBox">
-            <p class="featureSec__itemCat">category</p>
-            <h3 class="featureSec__itemTitle">
-              テキストテキストテキストテキストテキストテキストテキストテキスト
-            </h3>
-            <time class="featureSec__itemDate" datetime="2023-07-01"
-              >2023.07.01</time
-            >
-          </div>
-        </li>
-        <li class="featureSec__item">
-          <img src="" alt="" class="featureSec__itemImg" />
-          <div class="featureSec__textBox">
-            <p class="featureSec__itemCat">category</p>
-            <h3 class="featureSec__itemTitle">
-              テキストテキストテキストテキストテキストテキストテキストテキスト
-            </h3>
-            <time class="featureSec__itemDate" datetime="2023-07-01"
-              >2023.07.01</time
-            >
-          </div>
-        </li>
-        <li class="featureSec__item">
-          <img src="" alt="" class="featureSec__itemImg" />
-          <div class="featureSec__textBox">
-            <p class="featureSec__itemCat">category</p>
-            <h3 class="featureSec__itemTitle">
-              テキストテキストテキストテキストテキストテキストテキストテキスト
-            </h3>
-            <time class="featureSec__itemDate" datetime="2023-07-01"
-              >2023.07.01</time
-            >
-          </div>
-        </li>
-        <li class="featureSec__item">
-          <img src="" alt="" class="featureSec__itemImg" />
-          <div class="featureSec__textBox">
-            <p class="featureSec__itemCat">category</p>
-            <h3 class="featureSec__itemTitle">
-              テキストテキストテキストテキストテキストテキストテキストテキスト
-            </h3>
-            <time class="featureSec__itemDate" datetime="2023-07-01"
-              >2023.07.01</time
-            >
-          </div>
-        </li>
-        <li class="featureSec__item">
-          <img src="" alt="" class="featureSec__itemImg" />
-          <div class="featureSec__textBox">
-            <p class="featureSec__itemCat">category</p>
-            <h3 class="featureSec__itemTitle">
-              テキストテキストテキストテキストテキストテキストテキストテキスト
-            </h3>
-            <time class="featureSec__itemDate" datetime="2023-07-01"
-              >2023.07.01</time
-            >
-          </div>
-        </li>
-        <li class="featureSec__item">
-          <img src="" alt="" class="featureSec__itemImg" />
-          <div class="featureSec__textBox">
-            <p class="featureSec__itemCat">category</p>
-            <h3 class="featureSec__itemTitle">
-              テキストテキストテキストテキストテキストテキストテキストテキスト
-            </h3>
-            <time class="featureSec__itemDate" datetime="2023-07-01"
-              >2023.07.01</time
-            >
-          </div>
-        </li>
-        <li class="featureSec__item">
-          <img src="" alt="" class="featureSec__itemImg" />
-          <div class="featureSec__textBox">
-            <p class="featureSec__itemCat">category</p>
-            <h3 class="featureSec__itemTitle">
-              テキストテキストテキストテキストテキストテキストテキストテキスト
-            </h3>
-            <time class="featureSec__itemDate" datetime="2023-07-01"
-              >2023.07.01</time
-            >
-          </div>
-        </li>
-        <li class="featureSec__item">
-          <img src="" alt="" class="featureSec__itemImg" />
-          <div class="featureSec__textBox">
-            <p class="featureSec__itemCat">category</p>
-            <h3 class="featureSec__itemTitle">
-              テキストテキストテキストテキストテキストテキストテキストテキスト
-            </h3>
-            <time class="featureSec__itemDate" datetime="2023-07-01"
-              >2023.07.01</time
-            >
-          </div>
+        <li v-for="n in 9" :key="n" class="featureSec__item">
+          <a href="" class="featureSec__link">
+            <img src="" alt="" class="featureSec__itemImg" />
+            <div class="featureSec__textBox">
+              <p class="featureSec__itemCat">category</p>
+              <h3 class="featureSec__itemTitle">
+                テキストテキストテキストテキストテキストテキストテキストテキスト
+              </h3>
+              <time class="featureSec__itemDate" datetime="2023-07-01"
+                >2023.07.01</time
+              >
+            </div>
+          </a>
         </li>
       </ul>
     </section>
@@ -118,7 +24,7 @@
 
 <script>
 export default {
-  name: 'postsIndexPage',
+  name: 'NewsArchive',
 }
 </script>
 
@@ -143,6 +49,15 @@ export default {
     // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     box-shadow: 0px 0px 8px #00000029;
     // border: 1px solid #cccccc;
+  }
+
+  &__link {
+    color: $mainColor;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__itemImg {
