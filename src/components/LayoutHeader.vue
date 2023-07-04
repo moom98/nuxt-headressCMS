@@ -1,8 +1,8 @@
 <template>
   <header class="header">
-    <a href="" class="header__link">
+    <nuxt-link to="/" href="" class="header__link">
       <h1 class="header__title">Maigo</h1>
-    </a>
+    </nuxt-link>
     <button class="header__button">
       <span class="header__button-top"></span>
       <span class="header__button-middle"></span>
@@ -11,14 +11,10 @@
 
     <nav class="gnav">
       <ul class="gnav__list">
-        <li class="gnav__item">
-          <a href="#pickup" class="gnav__link">pick up</a>
-        </li>
-        <li class="gnav__item">
-          <a href="" class="gnav__link">feature</a>
-        </li>
-        <li class="gnav__item">
-          <a href="#contact" class="gnav__link">contact</a>
+        <li v-for="(item, index) in links" :key="index" class="gnav__item">
+          <nuxt-link :to="item.path" class="gnav__link"
+            >{{ item.label }}
+          </nuxt-link>
         </li>
       </ul>
     </nav>
@@ -28,6 +24,27 @@
 <script>
 export default {
   name: 'LayoutHeader',
+  data() {
+    return {
+      links: [
+        {
+          label: 'Pick up', // リンクのラベル
+          path: '/#pickup', // パス
+          isExternal: false, // 外部リンクかどうか
+        },
+        {
+          label: 'News',
+          path: '/news/',
+          isExternal: false,
+        },
+        {
+          label: 'Contact',
+          path: '/#contact',
+          isExternal: false,
+        },
+      ],
+    }
+  },
 }
 </script>
 
@@ -73,7 +90,9 @@ export default {
 }
 
 .gnav {
-  position: absolute;
+  display: none;
+
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
@@ -93,6 +112,10 @@ export default {
 
     .gnav__item:first-of-type & {
       border-top: solid 1px #fff;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
