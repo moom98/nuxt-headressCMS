@@ -86,4 +86,8 @@ export default {
   styleResources: {
     scss: ['assets/scss/_variables.scss'],
   },
+
+  // server: {
+  //   port: 65535
+  // },
 }

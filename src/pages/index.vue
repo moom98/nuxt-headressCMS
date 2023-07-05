@@ -48,6 +48,7 @@ import Slide from 'vue-carousel/src/Slide.vue'
 
 export default {
   name: 'IndexPage',
+
   components: {
     Carousel,
     Slide,
