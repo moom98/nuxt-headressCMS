@@ -9,19 +9,21 @@
           class="featureSec__item"
         >
           <nuxt-link :to="'/news/posts/' + post.id" class="featureSec__link">
-            <img
-              :src="post.acf.thumbnail.url"
-              alt=""
-              class="featureSec__itemImg"
-            />
+            <span class="featureSec__photo">
+              <img
+                :src="post.acf.thumbnail.url"
+                alt=""
+                class="featureSec__itemImg"
+              />
+            </span>
             <div class="featureSec__textBox">
-              <p class="featureSec__itemCat">category</p>
+              <p class="featureSec__itemCat">{{ newsTagLabel[index] }}</p>
               <h3 class="featureSec__itemTitle">
-                テキストテキストテキストテキストテキストテキストテキストテキスト
+                {{ post.acf.contents }}
               </h3>
-              <time class="featureSec__itemDate" datetime="2023-07-01"
-                >2023.07.01</time
-              >
+              <time class="featureSec__itemDate" datetime="2023-07-01">{{
+                post.date
+              }}</time>
             </div>
           </nuxt-link>
         </li>
@@ -43,6 +45,20 @@ export default {
 
       // 記事を取得
       const posts = await context.$axios.$get(newsUrl)
+      const tagLabel = []
+
+      posts.forEach((post) => {
+        const newsTagId = post['news-tag'][0]
+        const newsTag = context.$axios.$get(baseUrl + 'news-tag/' + newsTagId)
+        newsTag
+          .then((result) => {
+            // console.log(result.name)
+            tagLabel.push(result.name)
+          })
+          .catch((error) => {
+            console.error(error)
+          })
+      })
 
       // 記事が存在しない場合のエラーハンドリング
       if (!posts) {
@@ -53,6 +69,7 @@ export default {
 
       return {
         posts,
+        newsTagLabel: tagLabel, // ラベルを追加
       }
     } catch (error) {
       // エラーハンドリング
@@ -82,8 +99,10 @@ export default {
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: top;
+    flex-wrap: wrap;
+    width: 100%;
     gap: 26px;
     // width: 1210px;
     width: fit-content;
@@ -107,9 +126,24 @@ export default {
     }
   }
 
+  &__photo {
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56%;
+    position: relative;
+    overflow: hidden;
+  }
+
   &__itemImg {
-    width: 385px;
-    height: 257px;
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 385px;
+    height: 257px; */
     background-color: #ff0000;
   }
 
