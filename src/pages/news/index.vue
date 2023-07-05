@@ -1,11 +1,19 @@
 <template>
   <div class="news">
     <section class="news__feature featureSec">
-      <h2 class="featureSec__title secTitle">お知らせ一覧</h2>
+      <h2 class="featureSec__title secTitle">ALL FEATURE</h2>
       <ul class="featureSec__list">
-        <li v-for="n in 9" :key="n" class="featureSec__item">
-          <a href="" class="featureSec__link">
-            <img src="" alt="" class="featureSec__itemImg" />
+        <li
+          v-for="(post, index) in posts"
+          :key="index"
+          class="featureSec__item"
+        >
+          <nuxt-link :to="'/news/posts/' + post.id" class="featureSec__link">
+            <img
+              :src="post.acf.thumbnail.url"
+              alt=""
+              class="featureSec__itemImg"
+            />
             <div class="featureSec__textBox">
               <p class="featureSec__itemCat">category</p>
               <h3 class="featureSec__itemTitle">
@@ -15,7 +23,7 @@
                 >2023.07.01</time
               >
             </div>
-          </a>
+          </nuxt-link>
         </li>
       </ul>
     </section>
@@ -25,13 +33,52 @@
 <script>
 export default {
   name: 'NewsArchive',
+
+  async asyncData(context) {
+    try {
+      // WP REST APIのベースURL
+      const baseUrl = context.$config.wpBaseUrl
+
+      const newsUrl = baseUrl + 'news/'
+
+      // 記事を取得
+      const posts = await context.$axios.$get(newsUrl)
+
+      // 記事が存在しない場合のエラーハンドリング
+      if (!posts) {
+        const error = new Error('記事が見つかりませんでした')
+        error.statusCode = 404
+        throw error
+      }
+
+      return {
+        posts,
+      }
+    } catch (error) {
+      // エラーハンドリング
+      // console.error(error)
+      // 404エラーの場合はエラーページにリダイレクトする
+      if (error.statusCode === 404) {
+        context.error({
+          statusCode: 404,
+          message: '記事が見つかりませんでした',
+        })
+      }
+      throw error
+    }
+  },
+  data() {
+    return {
+      posts: [],
+    }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .featureSec {
   margin-top: 100px;
-  padding-bottom: 60px;
+  padding: 0 30px 60px;
 
   &__list {
     display: grid;
