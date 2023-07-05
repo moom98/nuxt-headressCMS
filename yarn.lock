@@ -4212,6 +4212,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bukwild-stylus-library@npm:^3.1.0":
+  version: 3.2.1
+  resolution: "bukwild-stylus-library@npm:3.2.1"
+  dependencies:
+    stylus-easing: "npm:^1"
+    stylus-type-utils: "npm:^0"
+  peerDependencies:
+    stylus: "*"
+  checksum: d2db20bed11577d185fd04b09ae5c6dac67b166dab1b6e89736b110942af06742aba8a5a7b905e8a49948415b6c5a72e97d1d4bc83f757022f849336bff0a33e
+  languageName: node
+  linkType: hard
+
 "bytes@npm:3.0.0":
   version: 3.0.0
   resolution: "bytes@npm:3.0.0"
@@ -10073,6 +10085,7 @@ __metadata:
     vue: "npm:^2.7.10"
     vue-carousel: "npm:^0.18.0"
     vue-server-renderer: "npm:^2.7.10"
+    vue-ssr-carousel: "npm:^2.3.2"
     vue-template-compiler: "npm:^2.7.10"
   languageName: unknown
   linkType: soft
@@ -13564,6 +13577,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stylus-easing@npm:^1":
+  version: 1.0.0
+  resolution: "stylus-easing@npm:1.0.0"
+  checksum: 05095cea7cc3511925168cb010ef8d5576d29d793e866dde37cb6fcd5a731a72ccad2d1d90bdd4b11568ae9e9f2e3ba9f6676f1bc46726928f1057d100a85b6f
+  languageName: node
+  linkType: hard
+
+"stylus-type-utils@npm:^0":
+  version: 0.0.3
+  resolution: "stylus-type-utils@npm:0.0.3"
+  peerDependencies:
+    stylus: 0.x
+  checksum: d4fed9b3c4809bcaed37ba6f2174f2b30afa6c00dfb95815d5c45d9c8d2ce597a5181b7abfcd37a7891645d3dc41525b2f29338207282232f155eb73c71ba36e
+  languageName: node
+  linkType: hard
+
 "supports-color@npm:^5.3.0":
   version: 5.5.0
   resolution: "supports-color@npm:5.5.0"
@@ -14573,6 +14602,15 @@ __metadata:
     serialize-javascript: "npm:^6.0.0"
     source-map: "npm:0.5.6"
   checksum: 7fc7c8ecf37151d206b22bcf2aafefe9477d97304ec48e9891e213f32c5b4c603b89deffdfc056f084c254e9092a45da3a9b90d95f6be4acb641b5319438a692
+  languageName: node
+  linkType: hard
+
+"vue-ssr-carousel@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "vue-ssr-carousel@npm:2.3.2"
+  dependencies:
+    bukwild-stylus-library: "npm:^3.1.0"
+  checksum: f7012426a438256db6d5bdf13bae1b8e78b076de85d68e91fdda84035058c372d3d688e0ebdbc47d146d74e455d3ca7175cd14dd48299f13cbbb41af578c73bb
   languageName: node
   linkType: hard
 

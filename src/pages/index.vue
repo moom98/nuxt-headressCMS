@@ -10,8 +10,6 @@
         class="pickupSec__list"
         :per-page="3.6"
         :loop="true"
-        :centerMode="true"
-        :minSwipeDistance="60"
         :paginationEnabled="false"
       >
         <slide v-for="n in 5" :key="n" class="pickupSec__item slide">
@@ -93,7 +91,6 @@ export default {
 
   &__itemLink {
     display: block;
-    // width: 360px;
     height: 240px;
   }
 
@@ -101,6 +98,10 @@ export default {
     width: 100%;
     height: 100%;
     background-color: #ff0000;
+  }
+
+  .VueCarousel-inner {
+    gap: 20px;
   }
 }
 
@@ -120,9 +121,7 @@ export default {
 
   &__item {
     width: 360px;
-    // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     box-shadow: 0px 0px 8px #00000029;
-    // border: 1px solid #cccccc;
   }
 
   &__link {

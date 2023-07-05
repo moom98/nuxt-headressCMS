@@ -54,7 +54,7 @@ export default {
     '@nuxtjs/eslint-module',
 
     // carousel
-    // 'vue-ssr-carousel/nuxt'
+    'vue-ssr-carousel/nuxt'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
